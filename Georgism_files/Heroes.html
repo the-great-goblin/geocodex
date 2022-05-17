@@ -1,0 +1,583 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Heroes</title>
+	<meta name="generator" content="Zim 0.74.3">
+	<meta name="viewport" content="width=device-width">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			position:relative;
+		}
+		#navigation {
+			background-color:#F3F3F3;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:65px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		#content {
+			float:left;
+			display:inline-block;
+			position:absolute;
+			max-width:960px;
+			padding:65px;
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:gray;
+		}
+		#navigation strong {
+			color:#4E9A06;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			color:#4E9A06;
+			font-weight:300;
+			margin-bottom: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		#content a {
+			color:#CE5C00;
+		}
+		#content a {
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: yellow;
+		}
+		#content tt {
+			color: #2e3436;
+		}
+		#content pre {
+			color: #2e3436;
+			margin-left: 20px;
+		}
+		.backlinks {
+			color:gray;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+		@media print{
+			#navigation{
+				background-color:#FFF;
+			}
+		}
+
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="navigation"> <ul>
+<li><a href="../Georgism.html" title="Georgism" class="page">Georgism</a>
+<ul>
+<li><a href="./Concepts.html" title="Concepts" class="page">Concepts</a></li>
+<li><b>Heroes</b>
+<ul>
+<li><a href="./Heroes/Quotes.html" title="Quotes" class="page">Quotes</a></li>
+</ul>
+</li>
+<li><a href="./Orgs.html" title="Orgs" class="page">Orgs</a></li>
+<li><a href="./Public_goods_are_capitalized_into_land_values..html" title="Public goods are capitalized into land values." class="page">Public goods are capitalized into land values.</a></li>
+<li><a href="./Visual_Chart.html" title="Visual Chart" class="page">Visual Chart</a></li>
+</ul></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>Heroes <a name='Workshop:Strong Towns:Georgism:Heroes'></a></h1>
+
+			<p>
+Created Monday 09 April 2018
+</p>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Georgism#Economists" title="https://en.wikipedia.org/wiki/Georgism#Economists" class="https">https://en.wikipedia.org/wiki/Georgism#Economists</a><br>
+<a href="https://www.prosper.org.au/geoists-in-history/" title="https://www.prosper.org.au/geoists-in-history/" class="https">https://www.prosper.org.au/geoists-in-history/</a>
+</p>
+
+<h4>Ancients<a id="ancients" class="h_anchor"></a></h4>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+Mencius<br>
+<a href="http://www.acmuller.net/con-dao/mencius.html" title="http://www.acmuller.net/con-dao/mencius.html" class="http">http://www.acmuller.net/con-dao/mencius.html</a><br>
+<a href="https://www.reddit.com/r/georgism/comments/8u3cnn/300_years_before_the_birth_of_christ_the_chinese/" title="https://www.reddit.com/r/georgism/comments/8u3cnn/300_years_before_the_birth_of_christ_the_chinese/" class="https">https://www.reddit.com/r/georgism/comments/8u3cnn/300_years_before_the_birth_of_christ_the_chinese/</a>
+</div>
+</p>
+
+<h4>Classical Liberals<a id="classical-liberals" class="h_anchor"></a></h4>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Jean-Jacques_Rousseau" title="https://en.wikipedia.org/wiki/Jean-Jacques_Rousseau" class="https">https://en.wikipedia.org/wiki/Jean-Jacques_Rousseau</a><br>
+<div style='padding-left: 30pt'>
+ “The first person who, having enclosed a plot of land, took it into his head to say this is mine and found people simple enough to believe him was the true founder of civil society. What crimes, wars, murders, what miseries and horrors would the human race have been spared, had some one pulled up the stakes or filled in the ditch and cried out to his fellow men: "Do not listen to this imposter. You are lost if you forget that the fruits of the earth belong to all and the earth to no one!” 
+</div>
+</p>
+
+<br>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Anne_Robert_Jacques_Turgot" title="https://en.wikipedia.org/wiki/Anne_Robert_Jacques_Turgot" class="https">https://en.wikipedia.org/wiki/Anne_Robert_Jacques_Turgot</a><br>
+<div style='padding-left: 30pt'>
+The idea of using land value taxation to reduce poverty goes back to Anne Robert Jacques Turgot, who was able to use the theory of land value taxation to increase the fairness at which taxes were collected in the French province of Limoges in 1761. Turgots writings were then translated into English by Scottish economist Adam Smith who said much the same thing in The Wealth of Nations in 1776, and whose theories on land values were clarified and confirmed by David Ricardo in 1803.
+</div>
+</p>
+
+<br>
+
+<p>
+Adam Smith
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+Both ground-rents and the ordinary rent of land are a species of revenue which the owner, in many cases, enjoys without any care or attention of his own.<br>
+Though a part of this revenue should be taken from him in order to defray the expenses of state, no discouragement will thereby be given to any sort of industry<br>
+...Ground-rents, and the ordinary rent of land, are, therefore, perhaps, the species of revenue which can best bear to have a peculiar tax imposed upon them.’
+</div>
+<div style='padding-left: 60pt'>
+The Wealth of Nations (1776) Bk V: 370
+</div>
+</p>
+
+<br>
+
+<p>
+Thomas Jefferson <br>
+<div style='padding-left: 30pt'>
+<a href="http://www.wealthandwant.com/themes/Jeffersonian_Ideals.html" title="http://www.wealthandwant.com/themes/Jeffersonian_Ideals.html" class="http">http://www.wealthandwant.com/themes/Jeffersonian_Ideals.html</a>
+</div>
+<div style='padding-left: 60pt'>
+Another means of silently lessening the inequality of property is to exempt all from taxation below a certain point, and to tax the higher portions of property in geometrical progression as they rise.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+Whenever there is in any country, uncultivated lands and unemployed poor, it is clear that the laws of property have been so far extended as to violate natural right. The earth is given as a commonstock for man to labour and live on. If for the encouragement of industry we allow it to be appropriated, we must take care that other employment be provided to those excluded from the appropriation. If we do not the fundamental right to labour the earth returns to the unemployed.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+It is too soon yet in our country to say that every man who cannot find employment but who can find uncultivated land shall be at liberty to cultivate it, paying a moderate rent. But it is not too soon to provide by every possible means that as few as possible shall be without a little portion of land. The small land holders are the most precious part of a state.
+</div>
+</p>
+
+<p>
+Thomas Paine<br>
+<div style='padding-left: 30pt'>
+Agrarian Justice
+</div>
+<div style='padding-left: 60pt'>
+"The life of an Indian is a continual holiday compared to the poor of Europe, but is abject poverty compared to the rich." <br>
+"Our system of property in land divides people into rich and poor."<br>
+source ~ 22 minutes <a href="https://www.youtube.com/watch?v=8kXAD_QZC9A" title="https://www.youtube.com/watch?v=8kXAD_QZC9A" class="https">https://www.youtube.com/watch?v=8kXAD_QZC9A</a>
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<h4>Georgists<a id="georgists" class="h_anchor"></a></h4>
+
+<br>
+
+<h5>Parallel to George<a id="parallel-to-george" class="h_anchor"></a></h5>
+
+<p>
+José Andrés Lamas<br>
+<div style='padding-left: 30pt'>
+Uruguayan Henry George<br>
+<a href="https://es.wikipedia.org/wiki/Andrés_Lamas_(escritor)" title="https://es.wikipedia.org/wiki/Andrés_Lamas_(escritor)" class="https">https://es.wikipedia.org/wiki/Andrés_Lamas_(escritor)</a><br>
+<a href="https://www.reddit.com/r/georgism/comments/k4h2oa/the_south_american_henry_george/" title="https://www.reddit.com/r/georgism/comments/k4h2oa/the_south_american_henry_george/" class="https">https://www.reddit.com/r/georgism/comments/k4h2oa/the_south_american_henry_george/</a>
+</div>
+<div style='padding-left: 60pt'>
+Lamas, as historian . . . was pretty fascinated about Rivadavia's Emphyteusis Law. This fascination, in addition to his knowledge about the classical political economists, heavily influenced his economic thought. His opinions were pretty similar to the ones of Henry George; Lamas wrote about the social value of land, about its increment with population growth and investment, about how landlords extract this wealth without doing anything, and he even proposes pretty much the same remedy: the extraction of ground rent for public benefit, inspired in the general idea of the Emphyteusis Law. The now long ago dissolved argentinian Single Tax League, alongside other georgist groups from South America, immediately got fascinated with Lamas and organized his writings about land economics in a series of books. Here are some links where you can read and download the PDF format of the aforementioned books, in spanish language:
+</div>
+</p>
+
+<h5><b>Early Georgists that aren't so well known today</b><a id="early-georgists-that-arent-so-well-known-today" class="h_anchor"></a></h5>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/Max_Hirsch_(economist)" title="https://en.wikipedia.org/wiki/Max_Hirsch_(economist)" class="https">https://en.wikipedia.org/wiki/Max_Hirsch_(economist)</a>
+</div>
+<div style='padding-left: 60pt'>
+Wrote Democracy verses Socialism
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/John_Sherwin_Crosby" title="https://en.wikipedia.org/wiki/John_Sherwin_Crosby" class="https">https://en.wikipedia.org/wiki/John_Sherwin_Crosby</a>
+</div>
+<div style='padding-left: 60pt'>
+Wrote the Orthocratic state. - supposedly demolishes the income tax.
+</div>
+<div style='padding-left: 90pt'>
+per GS: As a Crosbian as much as a Georgist, I invite people to investigate various theories of state legitimacy, specifically including those presented by Randy Barnett in "Restoring the Lost Constitution" and John Sherwin Crosby in "The Orthocratic State".<br>
+I will remind readers that Crosby was one of George's closest followers and delivered an address at George's funeral. His theories of government are explicitly libertarian—"The Orthocratic State" gives what is unmistakably the Principle of Non-Aggression four years before Ludwig von Mises published "Nation, State, Economy"—and flow directly from the philosophy of Henry George and other early libertarian writers, like James O'Brien and Lysander Spooner.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/Ralph_Borsodi" title="https://en.wikipedia.org/wiki/Ralph_Borsodi" class="https">https://en.wikipedia.org/wiki/Ralph_Borsodi</a>
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/Louis_F._Post" title="https://en.wikipedia.org/wiki/Louis_F._Post" class="https">https://en.wikipedia.org/wiki/Louis_F._Post</a>
+</div>
+<div style='padding-left: 60pt'>
+wrote "Social Service"
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/Bolton_Hall_(activist)" title="https://en.wikipedia.org/wiki/Bolton_Hall_(activist)" class="https">https://en.wikipedia.org/wiki/Bolton_Hall_(activist)</a>
+</div>
+</p>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Philip_Wicksteed" title="https://en.wikipedia.org/wiki/Philip_Wicksteed" class="https">https://en.wikipedia.org/wiki/Philip_Wicksteed</a><br>
+<div style='padding-left: 30pt'>
+Philip Henry Wicksteed (25 October 1844 – 18 March 1927) is known primarily as an economist. He was also a Georgist,[1] Unitarian theologian, classicist, medievalist, and literary critic. 
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+Yet, within a few years Wicksteed was to publish significant economic work of his own, carefully expounding on the theory he learned from William Stanley Jevons, and to become for many years a lecturer on economics for the University of London extension lectures (a kind of adult education program initiated in the 1870s to extend "the teaching of the universities, to serve up some of the crumbs from the university tables, in a portable and nutritious form, for some of the multitude who had no chance of sitting there").
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+In 1894, Wicksteed published his celebrated An Essay on the Co-ordination of the Laws of Distribution, in which he sought to prove mathematically that a distributive system which rewarded factory owners according to marginal productivity would exhaust the total product produced. But it was his 1910 The Common Sense of Political Economy which most comprehensively presents Wicksteed's economic system. The 1932 work by Lionel Robbins, An Essay on the Nature and Significance of Economic Science, picked up and developed his ideas. 
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/Ebenezer_Howard" title="https://en.wikipedia.org/wiki/Ebenezer_Howard" class="https">https://en.wikipedia.org/wiki/Ebenezer_Howard</a>
+</div>
+<div style='padding-left: 60pt'>
+Sir Ebenezer Howard OBE (29 January 1850[1] – 1 May 1928[2]), the English founder of the garden city movement, is known for his publication To-Morrow: A Peaceful Path to Real Reform (1898), the description of a utopian city in which people live harmoniously together with nature. The publication resulted in the founding of the garden city movement, and the building of the first garden city, Letchworth Garden City, commenced in 1903.<br>
+Howard aimed to reduce the alienation of humans and society from nature, and hence advocated garden cities[5] and Georgism.[6][7][8] Howard is believed by many to be one of the great guides to the town planning movement, with many of his garden city principles being used in modern town planning.[5][9]
+</div>
+<div style='padding-left: 90pt'>
+<a href="https://en.wikipedia.org/wiki/Garden_city_movement" title="https://en.wikipedia.org/wiki/Garden_city_movement" class="https">https://en.wikipedia.org/wiki/Garden_city_movement</a>			
+</div>
+</p>
+
+<br>
+
+<h5>Famous folks who had a little George in 'em<a id="famous-folks-who-had-a-little-george-in-em" class="h_anchor"></a></h5>
+
+<br>
+<br>
+
+<p>
+Teddy Roosevelt eventually came around<br>
+<div style='padding-left: 30pt'>
+<a href="http://www.wealthandwant.com/themes/Roosevelt_T.html" title="http://www.wealthandwant.com/themes/Roosevelt_T.html" class="http">http://www.wealthandwant.com/themes/Roosevelt_T.html</a>
+</div>
+</p>
+
+<p>
+Phillip Snowden<br>
+<div style='padding-left: 30pt'>
+<a href="https://www.prosper.org.au/2016/03/geoists-in-history-philip-snowden/" title="https://www.prosper.org.au/2016/03/geoists-in-history-philip-snowden/" class="https">https://www.prosper.org.au/2016/03/geoists-in-history-philip-snowden/</a><br>
+<a href="https://www.cooperative-individualism.org/churchill-winston_philip-snowden-1932.htm" title="https://www.cooperative-individualism.org/churchill-winston_philip-snowden-1932.htm" class="https">https://www.cooperative-individualism.org/churchill-winston_philip-snowden-1932.htm</a>
+</div>
+</p>
+
+<p>
+Winston Churchill <br>
+<div style='padding-left: 30pt'>
+<a href="https://bibliotek1.dk/english/the-land-question/winston-churchill-on-land-monopoly" title="https://bibliotek1.dk/english/the-land-question/winston-churchill-on-land-monopoly" class="https">https://bibliotek1.dk/english/the-land-question/winston-churchill-on-land-monopoly</a>
+</div>
+</p>
+
+<p>
+Sun Yat Sen<br>
+<div style='padding-left: 30pt'>
+Wanted to introduce LVT as part of Mengsheng.  Died before he could get it done.<br>
+Chiang Kai Shek got it done in Taiwan.  The landlords were paid off with bonds.
+</div>
+<div style='padding-left: 60pt'>
+Taiwan without much of any natural resources developed into a modern economy.
+</div>
+</p>
+
+<br>
+
+<p>
+Wolf Ladejinsky<br>
+<div style='padding-left: 30pt'>
+<a href="https://en.wikipedia.org/wiki/Wolf_Ladejinsky" title="https://en.wikipedia.org/wiki/Wolf_Ladejinsky" class="https">https://en.wikipedia.org/wiki/Wolf_Ladejinsky</a><br>
+Wolf Ladejinsky, the guy who convinced the U.S. government to support land reform in Japan and Taiwan, and one of the greatest unsung heroes of modern history, WAS A GEORGIST!! <br>
+By endorsing a policy of confiscating land from rich landlords (with minimal compensation) and distributing it to poor farmers, Ladejinsky saved much of East Asia from communism.<br>
+<a href="https://twitter.com/Noahpinion/status/1070364659377565696" title="https://twitter.com/Noahpinion/status/1070364659377565696" class="https">https://twitter.com/Noahpinion/status/1070364659377565696</a>
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+Ladejinsky's policies were not focused on land taxes. Instead, he focused on seizing land from landlords and giving it to small hard-working farmers. This policy was Georgist in the general sense because it rewarded the farmers' hard work, while dividing land equitably.  <br>
+Some believe that Ladejinsky's land reforms were a crucial reason for the stunning economic success of Japan, Taiwan, and other countries that copied the policy.<br>
+Similar policies have probably been effective in other countries, like India. <br>
+Some also credit Ladejinsky's policies with preventing Japan/Taiwan/Korea from becoming communist. Ladejinsky was derided as a communist by American conservatives, who (disastrously) opposed land reforms in Latin America. But in fact Georgism was a vaccine against communism.<br>
+Land reform, though, is a policy for a poor agrarian country with lots of surplus rural labor. What would Georgist policies look like in a rich country like America, aside from land value taxes?
+</div>
+</p>
+
+<p>
+Martin Luther King Jr<br>
+<div style='padding-left: 30pt'>
+<a href="http://www.wealthandwant.com/docs/King_Where.htm" title="http://www.wealthandwant.com/docs/King_Where.htm" class="http">http://www.wealthandwant.com/docs/King_Where.htm</a>
+</div>
+</p>
+
+<h5>Modern writers who are either Georgist or wrote georgist adjacent things<a id="modern-writers-who-are-either-georgist-or-wrote-georgist-adjacent-things" class="h_anchor"></a></h5>
+
+<p>
+Nicholaus Tideman
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+Noah Smith(?)
+</div>
+<div style='padding-left: 60pt'>
+<a href="https://noahpinion.substack.com/" title="https://noahpinion.substack.com/" class="https">https://noahpinion.substack.com/</a>
+</div>
+</p>
+
+<p>
+William Vickery (RIP)
+</p>
+
+<p>
+Michael Hudson<br>
+<div style='padding-left: 30pt'>
+<a href="http://michael-hudson.com/" title="http://michael-hudson.com/" class="http">http://michael-hudson.com/</a>
+</div>
+</p>
+
+<p>
+Fred Foldvary (RIP)<br>
+<div style='padding-left: 30pt'>
+foldvary.net
+</div>
+</p>
+
+<p>
+Mason Gaffney (RIP)<br>
+<div style='padding-left: 30pt'>
+<a href="https://www.masongaffney.org/" title="https://www.masongaffney.org/" class="https">https://www.masongaffney.org/</a>
+</div>
+Fred Harrison<br>
+<div style='padding-left: 30pt'>
+<a href="https://www.sharetherents.org" title="https://www.sharetherents.org" class="https">https://www.sharetherents.org</a>
+</div>
+</p>
+
+<br>
+
+<p>
+Elinor Ostrom - only woman with a nobel peace prize for economics  much work on common resource management<br>
+<div style='padding-left: 30pt'>
+<a href="https://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/2009/ostrom-facts.html" title="https://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/2009/ostrom-facts.html" class="https">https://www.nobelprize.org/nobel_prizes/economic-sciences/laureates/2009/ostrom-facts.html</a><br>
+<a href="https://evonomics.com/the-woman-who-saved-economics-from-disaster/" title="https://evonomics.com/the-woman-who-saved-economics-from-disaster/" class="https">https://evonomics.com/the-woman-who-saved-economics-from-disaster/</a><br>
+<b>The Meaning, Prospects, and Future of the Commons: Revisiting the Legacies of Elinor Ostrom and Henry George</b>
+</div>
+<div style='padding-left: 60pt'>
+<a href="https://drive.google.com/file/d/1E-jACOjitN20QagOcXiGDPy-z2VKlvaJ/view" title="https://drive.google.com/file/d/1E-jACOjitN20QagOcXiGDPy-z2VKlvaJ/view" class="https">https://drive.google.com/file/d/1E-jACOjitN20QagOcXiGDPy-z2VKlvaJ/view</a>
+</div>
+<div style='padding-left: 90pt'>
+Interesting paper but according to Dan Sullivan he misunderstands George
+</div>
+</p>
+
+<br>
+<br>
+
+<h4>Henry George on Race<a id="henry-george-on-race" class="h_anchor"></a></h4>
+
+<br>
+
+<p>
+I believe Henry George gradually outgrew his racist beliefs as he became older and wiser. 
+</p>
+
+<p>
+In Book 10, chapter 2 “differences in civilization - to what due?” Henry George describes how he used to believe black people were less intelligent until he spoke to a black man and learned from him that the real issue is what we today call systemic racism.
+</p>
+
+<br>
+<br>
+
+<p>
+<a href="https://old.reddit.com/r/georgism/comments/nemglk/progress_and_poverty_book_ii_chapter_2_goes/" title="https://old.reddit.com/r/georgism/comments/nemglk/progress_and_poverty_book_ii_chapter_2_goes/" class="https">https://old.reddit.com/r/georgism/comments/nemglk/progress_and_poverty_book_ii_chapter_2_goes/</a><br>
+<div style='padding-left: 30pt'>
+Chapter II Book II is not the last chapter George talked about race. By the end of the book, George actually dedicated half a chapter (Chapter II of Book X) talking about race, and spent the entire book X talk about civilizations (which inevitably touches upon the question of race and culture).
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+The entire book of P&amp;P talks about two things: Progress and Poverty. George spend the last 9 nine books talking about Poverty and especially why Poverty exists despite of Progress. For the last chapter of the book George decided that instead of talk about why poverty exists under progress, he'll talk about why Progress existed in the first place; what caused the difference of progress between countries; what cause the human race to progress. And like all other chapters, George started his chapter talking about the common consensus of progress among academia and why it's all wrong (George is a real rebel). In chapter II he tries to dispute the most common view of Progress at that time: that Progress is caused by natural selection, and the white men is progressive because he is more evolutionarily developed. 
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+George argues that a white men saying that European civilization is the most advanced in the 1870s is no different from a Chinese saying that the Tang Dynasty is the most advanced in 700s. Civilizations rise and fall, no civilization can say that it is above other civilizations in the grand scheme of things.
+</div>
+</p>
+
+<p>
+<a href="https://medium.com/georgist-times/what-is-under-heaven-belongs-to-all-d09b1eb1877c" title="https://medium.com/georgist-times/what-is-under-heaven-belongs-to-all-d09b1eb1877c" class="https">https://medium.com/georgist-times/what-is-under-heaven-belongs-to-all-d09b1eb1877c</a><br>
+<div style='padding-left: 30pt'>
+"    Coming from China, they look forward to return to China, and live while here in a little China of their own, just as the Englishmen in India maintain a little England. It is not merely that we naturally seek association with those who share our peculiarities, and that thus language, religion and custom tend to persist where individuals are not absolutely isolated; but that these differences provoke an external pressure, which compels such association. (Progress and Poverty, Book X)"
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+George doesn’t see the failure to assimilate as something specific to the Chinese, but rather as something fairly common among any group of expatriates. As a teenager, George sailed the seas as foremast boy, at one point ending up in the Indian port of Calcutta. This is probably the experience from which he conjures up his connection between the Chinese in California and the Englishmen in India, having witnessed both social dynamics himself.<br>
+So it seems that Henry George (or at least the Henry George of Progress and Poverty and his later years) doubted the possibility of Chinese assimilation, but not necessarily because of an explicitly racist outlook.<br>
+In short, while Henry George didn’t buy into the Social Darwinian myth of European genetic exceptionalism, he did buy into the assimilationist myth of American cultural exceptionalism, and he failed to see the universal resilience with which all people — regardless of origin — can fight for their lives, their families, and their futures.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+According to EM via Facebook:
+</div>
+<div style='padding-left: 60pt'>
+The quote about the Chinese "standard of comfort" comes from Ricardo's understanding of the floor of wages when there is no free land. I think this is ultimately the key to the whole issue, and why George never amended his view.<br>
+Ricardo argued that at that point it is a social phenomenon. The lowest level of subsistence that a culture would tolerate.<br>
+The fear was that Chinese laborers would accept a far lower standard of comfort, and in practice at the time this seems undeniable. Much like Mexican immigrants today, they worked longer hours, in harsher conditions, and lived in much more cramped quarters.
+</div>
+</p>
+
+<br>
+
+<p>
+<a href="http://www.cooperative-individualism.org/george-henry_issue-of-chinese-immigration-1890.htm" title="http://www.cooperative-individualism.org/george-henry_issue-of-chinese-immigration-1890.htm" class="http">http://www.cooperative-individualism.org/george-henry_issue-of-chinese-immigration-1890.htm</a><br>
+<div style='padding-left: 30pt'>
+Henry George made those comments in his early writings, regarding Chinese immigration. Some years later, he showed that he had a more mature view, with respect for the Chinese. As described in his book *Protection or Free Trade?*, he recognized that, if the U.S. does not have freedom at home, including equal rights to land access, that can cause a conflict with immigrants willing to work for lower wages.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+"It has been, as I have said, my privilege to have lived in terms of intimacy for years with the statesmen who govern China, to hold, as I do, many of them in terms of cherished and grateful friendship, to converse with them on many subjects....
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+"If all men have equal rights to land, must he not admit the equal right of the Chinese to American land ? ... But in the meantime, if we cannot throw open our doors to the ingress of Chinese we can at least throw open our ports to their trade, and in all our national relations with them treat them with that courtesy and respect for which ex-Minister Young contends."
+</div>
+</p>
+
+
+			<br>
+			<span class="backlinks">
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+
